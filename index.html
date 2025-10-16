@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purr Palace - For Cats, By Cats</title>
+    <title>Snow Palace - For Cats, By Cats</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="gradient-bg"></div>
-    
+
     <nav class="navbar">
-        <div class="logo">🐱 Purr Palace</div>
+        <div class="logo">🐱Snow Palace</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#activities">Activities</a></li>
@@ -21,7 +23,7 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="glitch" data-text="Welcome to Purr Palace">Welcome to Purr Palace</h1>
+            <h1 class="glitch" data-text="Welcome to Purr Palace">Welcome to Snow Palace</h1>
             <p class="subtitle">The Ultimate Digital Playground for Felines</p>
             <button class="cta-button" onclick="playMeow()">Meow Now 🎵</button>
         </div>
@@ -54,14 +56,14 @@
             </div>
             <div class="activity-card" onclick="activateCard(this)">
                 <div class="card-icon">🧶</div>
-                <h3>Yarn Tangle</h3>
+                <h3>Sonu Tangle</h3>
                 <p>Endless yarn to bat around and unravel</p>
             </div>
         </div>
     </section>
 
     <section id="treats" class="treats">
-        <h2>Premium Treats Menu</h2>
+        <h2>Premium Treats Menu for Sonu</h2>
         <div class="treats-container">
             <div class="treat-item" onmouseover="wiggleTreat(this)">
                 <span class="treat-emoji">🐟</span>
@@ -115,33 +117,33 @@
 
     <script>
         let purrCount = 0;
-        
+
         function playMeow() {
             const button = event.target;
             button.style.transform = 'scale(0.95)';
             setTimeout(() => button.style.transform = 'scale(1)', 100);
             purrCount++;
             document.getElementById('purrCount').textContent = purrCount;
-            
+
             const meows = ['Meow! 😺', 'Purr... 😸', 'Mrrrow! 😻', 'Mew! 😽'];
             const randomMeow = meows[Math.floor(Math.random() * meows.length)];
-            
+
             const meowText = document.createElement('div');
             meowText.className = 'meow-popup';
             meowText.textContent = randomMeow;
             meowText.style.left = Math.random() * 80 + 10 + '%';
             meowText.style.top = '50%';
             document.body.appendChild(meowText);
-            
+
             setTimeout(() => meowText.remove(), 2000);
         }
-        
+
         function activateCard(card) {
             card.style.transform = 'scale(0.95) rotateY(10deg)';
             setTimeout(() => card.style.transform = '', 300);
-            
+
             const icons = ['✨', '💫', '⭐', '🌟'];
-            for(let i = 0; i < 5; i++) {
+            for (let i = 0; i < 5; i++) {
                 const sparkle = document.createElement('span');
                 sparkle.textContent = icons[Math.floor(Math.random() * icons.length)];
                 sparkle.className = 'sparkle';
@@ -151,12 +153,12 @@
                 setTimeout(() => sparkle.remove(), 1000);
             }
         }
-        
+
         function wiggleTreat(treat) {
             treat.style.animation = 'none';
             setTimeout(() => treat.style.animation = 'wiggle 0.5s ease', 10);
         }
-        
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -164,7 +166,7 @@
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -173,7 +175,7 @@
                 }
             });
         }, { threshold: 0.1 });
-        
+
         document.querySelectorAll('section').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(30px)';
@@ -182,4 +184,5 @@
         });
     </script>
 </body>
+
 </html>
