@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purr Palace - For Cats, By Cats</title>
+    <link rel="stylesheet" href="cat_website_css.css">
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    
+    <nav class="navbar">
+        <div class="logo">🐱 Purr Palace</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#treats">Treats</a></li>
+            <li><a href="#naps">Nap Spots</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="Welcome to Purr Palace">Welcome to Purr Palace</h1>
+            <p class="subtitle">The Ultimate Digital Playground for Felines</p>
+            <button class="cta-button" onclick="playMeow()">Meow Now 🎵</button>
+        </div>
+        <div class="floating-paws">
+            <span class="paw">🐾</span>
+            <span class="paw">🐾</span>
+            <span class="paw">🐾</span>
+            <span class="paw">🐾</span>
+            <span class="paw">🐾</span>
+        </div>
+    </section>
+
+    <section id="activities" class="activities">
+        <h2>Today's Activities</h2>
+        <div class="activity-grid">
+            <div class="activity-card" onclick="activateCard(this)">
+                <div class="card-icon">🎾</div>
+                <h3>Chase the Ball</h3>
+                <p>Interactive ball-chasing game designed for your hunting instincts</p>
+            </div>
+            <div class="activity-card" onclick="activateCard(this)">
+                <div class="card-icon">🦅</div>
+                <h3>Bird Watching</h3>
+                <p>Live streams of birds at feeders around the world</p>
+            </div>
+            <div class="activity-card" onclick="activateCard(this)">
+                <div class="card-icon">📦</div>
+                <h3>Box Explorer</h3>
+                <p>Virtual boxes to jump in and explore</p>
+            </div>
+            <div class="activity-card" onclick="activateCard(this)">
+                <div class="card-icon">🧶</div>
+                <h3>Yarn Tangle</h3>
+                <p>Endless yarn to bat around and unravel</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="treats" class="treats">
+        <h2>Premium Treats Menu</h2>
+        <div class="treats-container">
+            <div class="treat-item" onmouseover="wiggleTreat(this)">
+                <span class="treat-emoji">🐟</span>
+                <h4>Salmon Delight</h4>
+                <div class="treat-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+            <div class="treat-item" onmouseover="wiggleTreat(this)">
+                <span class="treat-emoji">🍗</span>
+                <h4>Chicken Supreme</h4>
+                <div class="treat-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+            <div class="treat-item" onmouseover="wiggleTreat(this)">
+                <span class="treat-emoji">🥛</span>
+                <h4>Creamy Milk</h4>
+                <div class="treat-rating">⭐⭐⭐⭐</div>
+            </div>
+            <div class="treat-item" onmouseover="wiggleTreat(this)">
+                <span class="treat-emoji">🧀</span>
+                <h4>Cheese Nibbles</h4>
+                <div class="treat-rating">⭐⭐⭐⭐</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="naps" class="naps">
+        <h2>Cozy Nap Spots</h2>
+        <div class="nap-grid">
+            <div class="nap-spot">
+                <div class="nap-image">☀️</div>
+                <p>Sunny Window Sill</p>
+            </div>
+            <div class="nap-spot">
+                <div class="nap-image">🛋️</div>
+                <p>Velvet Couch</p>
+            </div>
+            <div class="nap-spot">
+                <div class="nap-image">📦</div>
+                <p>Cardboard Box</p>
+            </div>
+            <div class="nap-spot">
+                <div class="nap-image">🧺</div>
+                <p>Laundry Basket</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Made with 💜 for all the cats of the world</p>
+        <p class="purr-counter">Purrs today: <span id="purrCount">0</span></p>
+    </footer>
+
+    <script>
+        let purrCount = 0;
+        
+        function playMeow() {
+            const button = event.target;
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => button.style.transform = 'scale(1)', 100);
+            purrCount++;
+            document.getElementById('purrCount').textContent = purrCount;
+            
+            const meows = ['Meow! 😺', 'Purr... 😸', 'Mrrrow! 😻', 'Mew! 😽'];
+            const randomMeow = meows[Math.floor(Math.random() * meows.length)];
+            
+            const meowText = document.createElement('div');
+            meowText.className = 'meow-popup';
+            meowText.textContent = randomMeow;
+            meowText.style.left = Math.random() * 80 + 10 + '%';
+            meowText.style.top = '50%';
+            document.body.appendChild(meowText);
+            
+            setTimeout(() => meowText.remove(), 2000);
+        }
+        
+        function activateCard(card) {
+            card.style.transform = 'scale(0.95) rotateY(10deg)';
+            setTimeout(() => card.style.transform = '', 300);
+            
+            const icons = ['✨', '💫', '⭐', '🌟'];
+            for(let i = 0; i < 5; i++) {
+                const sparkle = document.createElement('span');
+                sparkle.textContent = icons[Math.floor(Math.random() * icons.length)];
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                card.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        }
+        
+        function wiggleTreat(treat) {
+            treat.style.animation = 'none';
+            setTimeout(() => treat.style.animation = 'wiggle 0.5s ease', 10);
+        }
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
